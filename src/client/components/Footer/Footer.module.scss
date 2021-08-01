@@ -1,0 +1,8 @@
+@import "../../../shared/styles/base";
+
+.footer {
+  @include flex(flex-end);
+  padding: 6px 10px;
+  color: $footer-primary-text-color;
+  background: $footer-bg-color;
+}

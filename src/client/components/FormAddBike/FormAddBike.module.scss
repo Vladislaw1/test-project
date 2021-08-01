@@ -1,0 +1,50 @@
+@import "../../../shared/styles/base";
+
+.form{
+  @include flex(center);
+  flex-wrap: wrap;
+  position: relative;
+
+  &:after{
+    position: absolute;
+    content: "";
+    background: #282c34;
+    width: 100%;
+  }
+  &Input{
+    flex-grow: 1;
+    background: #E8E8E8;
+    border-radius: 5px;
+    border: none;
+    padding: 5px 16px;
+    width: 235px;
+    margin-bottom: 11px;
+  }
+  &Textarea{
+    width: 100%;
+    margin-bottom: 10px;
+    height: 75px;
+    background: #E8E8E8;
+    border-radius: 5px;
+    border: none;
+    padding: 5px 16px;
+    resize: none;
+  }
+  &Btn{
+    font-family: Saira,"sans-serif";
+    text-transform: uppercase;
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+
+    border: none;
+    border-radius: 5px;
+
+    flex-grow: 1;
+    background: $btn-bg-color;
+  }
+}
+.margin{
+  margin-right: 11px;
+}

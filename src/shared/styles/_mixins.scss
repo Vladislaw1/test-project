@@ -1,0 +1,10 @@
+@mixin flex($main-axis: flex-start, $cross-axis: stretch) {
+  display: flex;
+
+  @if $main-axis != flex-start {
+    justify-content: $main-axis;
+  }
+  @if $cross-axis != stretch {
+    align-items: $cross-axis;
+  }
+}
