@@ -19,6 +19,7 @@ export const getALlBike = () => async dispatch => {
         const {data: {result}} = await service.getAllBike(allBikePoint)
         dispatch(getAllBikeSuccess(result))
     } catch (e) {
+        console.log(e)
         dispatch(getAllBikeError(e.message))
     }
 }
@@ -28,13 +29,16 @@ export const addNewBike = (body) => async dispatch => {
     //     const {data: {result}} = await axios.post("http://localhost:4002/api/v1/bikes", body)
     //     dispatch(addNewBikeSuccess(result))
     // } catch (e) {
-    //     dispatch(addNewBikeError("Error 400"))
+    //     console.log(e.response.data)
+    //     dispatch(addNewBikeError(e.response.data.message))
     // }
     dispatch(addNewBikeRequest())
     try {
-        const {data:{result}} = await service.addBike(addNewBikePoint, body)
-        dispatch(addNewBikeSuccess(result))
+        const response = await service.addBike(addNewBikePoint, body)
+        console.log(response)
+        // dispatch(addNewBikeSuccess(response.data.result))
     } catch (e) {
+        console.log(e)
         dispatch(addNewBikeError(e))
     }
 }
@@ -51,11 +55,9 @@ export const updateBike = (body, id) => async dispatch => {
 export const deleteBike = (id) => async dispatch => {
     dispatch(deleteBikeRequest())
     try {
-        const {data} = await service.deleteBike(allBikePoint, id)
-        console.log(data)
+        await service.deleteBike(allBikePoint, id)
         dispatch(deleteBikeSuccess(id))
     } catch (e) {
-        console.log(e)
         dispatch(deleteBikeError(e.message))
     }
 }
