@@ -9,7 +9,6 @@ import {
 
 import BikeService from "./bike-service";
 import {addNewBikePoint, allBikePoint} from "./endpoint";
-import axios from "axios";
 
 const service = new BikeService();
 
@@ -23,25 +22,18 @@ export const getALlBike = () => async dispatch => {
         dispatch(getAllBikeError(e.message))
     }
 }
+
 export const addNewBike = (body) => async dispatch => {
-    // dispatch(addNewBikeRequest())
-    // try {
-    //     const {data: {result}} = await axios.post("http://localhost:4002/api/v1/bikes", body)
-    //     dispatch(addNewBikeSuccess(result))
-    // } catch (e) {
-    //     console.log(e.response.data)
-    //     dispatch(addNewBikeError(e.response.data.message))
-    // }
     dispatch(addNewBikeRequest())
     try {
-        const response = await service.addBike(addNewBikePoint, body)
-        console.log(response)
-        // dispatch(addNewBikeSuccess(response.data.result))
+        const {data:{result}} = await service.addBike(addNewBikePoint, body)
+        dispatch(addNewBikeSuccess(result))
     } catch (e) {
-        console.log(e)
-        dispatch(addNewBikeError(e))
+        const {message} = e.response.data
+        dispatch(addNewBikeError(message))
     }
 }
+
 export const updateBike = (body, id) => async dispatch => {
     const data = {status: body}
     dispatch(updateBikeRequest())

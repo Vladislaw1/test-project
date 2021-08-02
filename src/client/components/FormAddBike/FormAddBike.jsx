@@ -11,7 +11,9 @@ import {isError} from "../../../redux/bike/bike-selectors";
 function FormAddBike() {
     const dispatch = useDispatch()
     const error = useSelector(isError)
-    const onSubmit = (data) => dispatch(addNewBike(data))
+
+    const onSubmit = useCallback((data) => dispatch(addNewBike(data)),[])
+
     const [data, handleChange, handleSubmit] = useForm(state, onSubmit)
 
     return (

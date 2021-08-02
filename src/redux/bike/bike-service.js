@@ -4,7 +4,6 @@ class BikeService extends BaseHttpService{
     async getAllBike(endpoint){
         try {
             const data = await this.get(endpoint)
-            // console.log(data)
             return data
         }catch (e) {
 
@@ -13,11 +12,9 @@ class BikeService extends BaseHttpService{
     async addBike(endpoint,body){
         try {
             const data = await this.post(endpoint,body)
-            console.log(data)
             return data
         }catch (e) {
-            console.log(e)
-            return e
+           throw e
         }
     }
 
@@ -26,7 +23,6 @@ class BikeService extends BaseHttpService{
             const data = await this.patch(endpoint,body,id)
             return data
         }catch (e) {
-            // console.log(e)
             return e
         }
     }
