@@ -18,16 +18,19 @@ function BikesListItem(props) {
     return (
         <li className={styles.availableListItem}>
             <p className={styles.nameTag}><span className={styles.name}>{name}</span> - {type}({color})</p>
-            <p className={styles.id}>ID - {id}</p>
+            <p className={styles.id}>ID: {id}</p>
             <p className={styles.price}>{price} UAH/hr</p>
             <button className={styles.btnDelete} type="button" onClick={() => removeBike(_id)}>
                 <Remove className={styles.btnDeleteIcon}/>
             </button>
-            <select value={status} onChange={(e) => dispatch(updateBike(e.target.value, _id))}>
-                <option selected value={"Available"}>Available</option>
-                <option value={"Busy"}>Busy</option>
-                <option value={"Unavailable"}>Unavailable</option>
-            </select>
+            <div>
+                <p className={styles.statusCaption}>Status :</p>
+                <select className={styles.statusSelect} defaultValue={"Available"} onChange={(e) => dispatch(updateBike(e.target.value, _id))}>
+                    <option value={"Available"}>Available</option>
+                    <option value={"Busy"}>Busy</option>
+                    <option value={"Unavailable"}>Unavailable</option>
+                </select>
+            </div>
         </li>
     );
 }

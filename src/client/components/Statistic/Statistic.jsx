@@ -13,7 +13,7 @@ function Statistic(props) {
     const busyBike = bikes.filter(el => el.status === "Busy")
 
     const sumPrice = bikes.reduce((acc,curr) => acc + curr.price,0)
-    const averageBikeCost = sumPrice / bikes.length
+    const averageBikeCost = (sumPrice / bikes.length).toFixed(2)
 
     return (
         <div className={styles.statBox}>

@@ -3,6 +3,16 @@
 .footer {
   @include flex(flex-end);
   padding: 6px 10px;
-  color: $footer-primary-text-color;
   background: $footer-bg-color;
+  font-family: Saira;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.5;
+
+  &Text{
+    color: $footer-primary-text-color;
+  }
+}
+.nameDev{
+  color: white;
 }

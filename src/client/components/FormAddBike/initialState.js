@@ -4,6 +4,6 @@ export const state = {
     type:"",
     color:"",
     wheelSize:"",
-    price: 0,
+    price: "",
     description:""
 }
