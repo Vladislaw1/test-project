@@ -18,6 +18,8 @@ export const deleteBikeError = createAction("deleteBikeError");
 
 const action = {
     getAllBikeRequest,getAllBikeSuccess,getAllBikeError,
+    addNewBikeRequest,addNewBikeSuccess,addNewBikeError,
+    updateBikeRequest,updateBikeSuccess,updateBikeError,
     deleteBikeRequest,deleteBikeSuccess,deleteBikeError
 }
 

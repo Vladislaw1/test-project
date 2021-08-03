@@ -2,7 +2,7 @@ import axios from "axios";
 
 class BaseHttpService {
 
-    BASE_URL = "http://localhost:4002";
+    BASE_URL = "https://backand-bikes.herokuapp.com";
 
     async get(endpoint = '') {
         try {

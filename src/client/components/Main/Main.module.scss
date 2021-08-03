@@ -1,0 +1,13 @@
+.mainContent{
+  display: flex;
+
+  &BikeList{
+    width: 100%;
+    padding: 9px;
+    border-right: 1px solid #C4C4C4
+  }
+
+  &StatisticAndForm{
+    width: 100%;
+  }
+}
