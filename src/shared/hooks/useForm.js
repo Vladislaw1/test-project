@@ -18,7 +18,7 @@ const useForm = (initialState,onSubmit = () => {}) => {
         setData(initialState)
     }
 
-    return [data,handleChange,handleSubmit];
+    return [data,reset,handleChange,handleSubmit];
 }
 
 export default useForm;

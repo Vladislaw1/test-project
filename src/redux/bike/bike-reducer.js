@@ -36,8 +36,10 @@ const loading = createReducer(false, {
 })
 
 const error = createReducer(null, {
+    [getAllBikeSuccess]: (_, {payload}) => null,
     [getAllBikeError]: (_, {payload}) => payload,
-    [addNewBikeError]: (_, {payload}) => payload
+    [addNewBikeSuccess]: (_,{payload})=> null,
+    [addNewBikeError]: (_, {payload}) => payload,
 })
 
 export default combineReducers({

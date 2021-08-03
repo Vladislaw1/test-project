@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, {useCallback} from 'react';
 
 import {useDispatch} from "react-redux";
 import {deleteBike, updateBike} from "../../../redux/bike/bike-operations";
@@ -11,7 +11,7 @@ function BikesListItem(props) {
     const dispatch = useDispatch()
     const {_id, id, name, type, color, price,status} = props.bike
 
-    const removeBike = useCallback((id)=> dispatch(deleteBike(id)),[])
+    const removeBike = useCallback((id)=> dispatch(deleteBike(id)),[dispatch])
 
     return (
         <li className={styles.availableListItem}>
@@ -23,7 +23,7 @@ function BikesListItem(props) {
             </button>
             <div>
                 <p className={styles.statusCaption}>Status :</p>
-                <select className={styles.statusSelect} defaultValue={"Available"} onChange={(e) => dispatch(updateBike(e.target.value, _id))}>
+                <select className={styles.statusSelect} defaultValue={status} onChange={(e) => dispatch(updateBike(e.target.value, _id))}>
                     <option value={"Available"}>Available</option>
                     <option value={"Busy"}>Busy</option>
                     <option value={"Unavailable"}>Unavailable</option>

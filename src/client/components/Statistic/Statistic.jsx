@@ -1,13 +1,12 @@
 import React from 'react';
 import {useSelector} from "react-redux";
 
-import {allBikes, loading} from "../../../redux/bike/bike-selectors";
+import {allBikes} from "../../../redux/bike/bike-selectors";
 
 import styles from "./Statistic.module.scss"
 
 function Statistic(props) {
     const bikes = useSelector(allBikes)
-    const isLoading = useSelector(loading)
 
     const availableBike = bikes.filter(el => el.status === "Available")
     const busyBike = bikes.filter(el => el.status === "Busy")

@@ -58,3 +58,17 @@
 .margin{
   margin-right: 11px;
 }
+.error{
+  @include flex(center,center);
+  padding: 5px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  background: darkred;
+  color: white;
+  &Icon{
+    margin-right: 50px;
+    fill: red;
+    stroke: red;
+    width: 32px;
+  }
+}
